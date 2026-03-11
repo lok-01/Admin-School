@@ -1,0 +1,35 @@
+@model IEnumerable<Teacher>
+@{ ViewData["Title"] = "Teachers"; }
+<div class="card shadow-sm">
+    <div class="card-header bg-white py-3 d-flex flex-wrap gap-2 align-items-center justify-content-between">
+        <h6 class="mb-0 fw-bold"><i class="bi bi-person-badge text-danger me-2"></i>All Teachers <span class="badge bg-danger ms-1">@Model.Count()</span></h6>
+        <a asp-action="Create" class="btn btn-danger btn-sm"><i class="bi bi-plus-lg me-1"></i>Add Teacher</a>
+    </div>
+    <div class="card-body border-bottom pb-3">
+        <form method="get" class="d-flex gap-2">
+            <div class="input-group" style="max-width:380px;"><span class="input-group-text"><i class="bi bi-search text-muted"></i></span><input type="text" name="search" value="@ViewBag.Search" class="form-control" placeholder="Search name, email, subject..." /><button class="btn btn-outline-secondary" type="submit">Search</button></div>
+            @if (!string.IsNullOrEmpty(ViewBag.Search as string)) { <a asp-action="Index" class="btn btn-outline-danger"><i class="bi bi-x"></i> Clear</a> }
+        </form>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light"><tr><th>#</th><th>Name</th><th>Mobile</th><th>Email</th><th>Subject</th><th>Actions</th></tr></thead>
+                <tbody>
+                    @if (!Model.Any()) { <tr><td colspan="6" class="text-center py-5 text-muted"><i class="bi bi-inbox fs-1 d-block mb-2"></i>No teachers found.</td></tr> }
+                    @{ int i=1; }
+                    @foreach (var t in Model) {
+                    <tr>
+                        <td class="text-muted">@(i++)</td><td class="fw-semibold">@t.Name</td><td>@t.Mobile</td><td>@t.Email</td>
+                        <td><span class="badge bg-danger bg-opacity-75">@t.Subject</span></td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@t.TeacherId" class="btn btn-sm btn-outline-info"><i class="bi bi-eye"></i></a>
+                            <a asp-action="Edit" asp-route-id="@t.TeacherId" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+                            <a asp-action="Delete" asp-route-id="@t.TeacherId" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr> }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

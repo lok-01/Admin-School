@@ -1,0 +1,17 @@
+@model Subject
+@{ ViewData["Title"] = "Add Subject"; }
+<div class="row justify-content-center"><div class="col-lg-6">
+<div class="card shadow-sm"><div class="card-header text-white py-3" style="background:#6f42c1"><h5 class="mb-0"><i class="bi bi-journal-text me-2"></i>Add New Subject</h5></div>
+<div class="card-body p-4">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small"></div>
+        <div class="mb-3"><label asp-for="SubjectName" class="form-label fw-semibold"></label><input asp-for="SubjectName" class="form-control" placeholder="Subject name" /><span asp-validation-for="SubjectName" class="text-danger small"></span></div>
+        <div class="mb-4">
+            <label asp-for="CourseId" class="form-label fw-semibold">Linked Course</label>
+            <select asp-for="CourseId" asp-items="ViewBag.Courses" class="form-select"><option value="">-- Select Course --</option></select>
+            <span asp-validation-for="CourseId" class="text-danger small"></span>
+            <div class="form-text"><i class="bi bi-info-circle me-1"></i>Subject will be linked to the selected course (dropdown mapping)</div>
+        </div>
+        <div class="d-flex gap-2"><button type="submit" class="btn text-white px-4" style="background:#6f42c1"><i class="bi bi-check-lg me-1"></i>Save Subject</button><a asp-action="Index" class="btn btn-outline-secondary">Cancel</a></div>
+    </form>
+</div></div></div></div>

@@ -1,0 +1,18 @@
+body { background: #f4f6f9; font-family: 'Segoe UI', sans-serif; }
+.sidebar-link { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:8px; color:#ccc; text-decoration:none; font-size:14px; margin-bottom:2px; transition:.15s; }
+.sidebar-link:hover { background:rgba(255,255,255,.1); color:#fff; }
+.sidebar-link.active { background:rgba(255,255,255,.18); color:#fff; font-weight:600; }
+.nav-section-label { font-size:10px; font-weight:700; letter-spacing:.08em; color:#6c757d; text-transform:uppercase; padding:4px 12px; }
+.card { border-radius:12px !important; border:none !important; }
+.card-header { border-radius:12px 12px 0 0 !important; }
+.table th { font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:#6c757d; font-weight:600; }
+.table td { vertical-align:middle; font-size:.9rem; }
+.btn { border-radius:8px !important; font-weight:500; }
+.form-control, .form-select { border-radius:8px !important; padding:10px 14px; border-color:#dee2e6; }
+.form-control:focus, .form-select:focus { box-shadow:0 0 0 .2rem rgba(13,110,253,.15); border-color:#86b7fe; }
+.badge { border-radius:6px; padding:5px 10px; font-weight:500; }
+.input-group-text { border-radius:8px 0 0 8px !important; }
+.stat-card { border-radius:16px !important; transition:.2s; }
+.stat-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.1) !important; }
+.topbar { box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.delete-confirm-modal .modal-header { border-radius:12px 12px 0 0; }

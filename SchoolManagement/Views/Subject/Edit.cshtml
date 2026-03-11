@@ -1,0 +1,17 @@
+@model Subject
+@{ ViewData["Title"] = "Edit Subject"; }
+<div class="row justify-content-center"><div class="col-lg-6">
+<div class="card shadow-sm"><div class="card-header bg-warning text-dark py-3"><h5 class="mb-0"><i class="bi bi-pencil me-2"></i>Edit Subject</h5></div>
+<div class="card-body p-4">
+    <form asp-action="Edit" method="post">
+        <input asp-for="SubjectId" type="hidden" />
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small"></div>
+        <div class="mb-3"><label asp-for="SubjectName" class="form-label fw-semibold"></label><input asp-for="SubjectName" class="form-control" /><span asp-validation-for="SubjectName" class="text-danger small"></span></div>
+        <div class="mb-4">
+            <label asp-for="CourseId" class="form-label fw-semibold">Linked Course</label>
+            <select asp-for="CourseId" asp-items="ViewBag.Courses" class="form-select"></select>
+            <span asp-validation-for="CourseId" class="text-danger small"></span>
+        </div>
+        <div class="d-flex gap-2"><button type="submit" class="btn btn-warning px-4"><i class="bi bi-check-lg me-1"></i>Update Subject</button><a asp-action="Index" class="btn btn-outline-secondary">Cancel</a></div>
+    </form>
+</div></div></div></div>

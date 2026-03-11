@@ -1,0 +1,13 @@
+@model ClassSection
+@{ ViewData["Title"] = "Class Details"; }
+<div class="row justify-content-center"><div class="col-md-5">
+<div class="card shadow-sm"><div class="card-header bg-info text-white py-3 d-flex justify-content-between align-items-center"><h5 class="mb-0"><i class="bi bi-building me-2"></i>Class Details</h5><span class="badge bg-white text-info">ID: #@Model.ClassId</span></div>
+<div class="card-body p-4"><dl class="row mb-0">
+    <dt class="col-sm-4 text-muted">Class Name</dt><dd class="col-sm-8 fw-semibold">@Model.ClassName</dd>
+    <dt class="col-sm-4 text-muted">Section</dt><dd class="col-sm-8"><span class="badge bg-secondary fs-6">Section @Model.Section</span></dd>
+</dl></div>
+<div class="card-footer bg-white d-flex gap-2">
+    <a asp-action="Edit" asp-route-id="@Model.ClassId" class="btn btn-warning btn-sm"><i class="bi bi-pencil me-1"></i>Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.ClassId" class="btn btn-danger btn-sm"><i class="bi bi-trash me-1"></i>Delete</a>
+    <a asp-action="Index" class="btn btn-outline-secondary btn-sm ms-auto"><i class="bi bi-arrow-left me-1"></i>Back</a>
+</div></div></div></div>

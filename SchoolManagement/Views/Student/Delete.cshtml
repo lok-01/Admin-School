@@ -1,0 +1,29 @@
+@model Student
+@{ ViewData["Title"] = "Delete Student"; }
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-danger">
+            <div class="card-header bg-danger text-white py-3">
+                <h5 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Confirm Delete</h5>
+            </div>
+            <div class="card-body p-4 text-center">
+                <div class="mb-3">
+                    <i class="bi bi-person-x text-danger" style="font-size:4rem;"></i>
+                </div>
+                <h5>Are you sure you want to delete this student?</h5>
+                <p class="text-muted">This action cannot be undone.</p>
+                <div class="alert alert-light border text-start">
+                    <strong>Name:</strong> @Model.Name<br />
+                    <strong>Email:</strong> @Model.Email<br />
+                    <strong>Mobile:</strong> @Model.Mobile
+                </div>
+                <form asp-action="Delete" method="post" class="d-flex gap-2 justify-content-center">
+                    <input asp-for="StudentId" type="hidden" />
+                    <button type="submit" class="btn btn-danger px-4"><i class="bi bi-trash me-1"></i>Yes, Delete</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

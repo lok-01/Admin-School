@@ -1,0 +1,126 @@
+@model DashboardViewModel
+@{ ViewData["Title"] = "Dashboard"; }
+
+<!-- Stat Cards -->
+<div class="row g-3 mb-4">
+    @{
+        var stats = new[]
+        {
+            (Model.TotalStudents, "Students", "people-fill", "#0d6efd", "bg-primary"),
+            (Model.TotalCourses,  "Courses",  "book-fill",   "#198754", "bg-success"),
+            (Model.TotalTeachers, "Teachers", "person-badge-fill", "#fd7e14", "bg-warning"),
+            (Model.TotalSubjects, "Subjects", "journal-text", "#6f42c1", "bg-purple"),
+            (Model.TotalClasses,  "Classes",  "building-fill","#dc3545", "bg-danger"),
+        };
+        foreach (var (count, label, icon, color, bg) in stats)
+        {
+            <div class="col-6 col-md-4 col-xl">
+                <div class="card shadow-sm stat-card h-100">
+                    <div class="card-body d-flex align-items-center gap-3 p-3">
+                        <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:52px;height:52px;background:@color+22">
+                            <i class="bi bi-@icon fs-4" style="color:@color"></i>
+                        </div>
+                        <div>
+                            <div class="fs-3 fw-bold lh-1">@count</div>
+                            <div class="text-muted small">@label</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<!-- Quick Actions -->
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-white py-3">
+        <h6 class="mb-0 fw-bold"><i class="bi bi-lightning-charge-fill text-warning me-2"></i>Quick Actions</h6>
+    </div>
+    <div class="card-body">
+        <div class="row g-2">
+            @{
+                var actions = new[]
+                {
+                    ("/Student/Create", "Add Student", "person-plus", "#0d6efd"),
+                    ("/Course/Create",  "Add Course",  "book-half",   "#198754"),
+                    ("/Class/Create",   "Add Class",   "building-add","#fd7e14"),
+                    ("/Subject/Create", "Add Subject", "journal-plus","#6f42c1"),
+                    ("/Teacher/Create", "Add Teacher", "person-video3","#dc3545"),
+                };
+                foreach (var (url, label, icon, color) in actions)
+                {
+                    <div class="col-6 col-md-4 col-lg">
+                        <a href="@url" class="text-decoration-none">
+                            <div class="border rounded-3 p-3 text-center h-100 hover-action">
+                                <i class="bi bi-@icon fs-2 mb-1 d-block" style="color:@color"></i>
+                                <div class="small fw-semibold text-dark">@label</div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Recent Tables -->
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-people text-primary me-2"></i>Recent Students</h6>
+                <a href="/Student" class="btn btn-sm btn-outline-primary">View All</a>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light"><tr><th>Name</th><th>Gender</th><th>Mobile</th></tr></thead>
+                    <tbody>
+                        @if (!Model.RecentStudents.Any())
+                        {
+                            <tr><td colspan="3" class="text-center text-muted py-3">No students yet</td></tr>
+                        }
+                        @foreach (var s in Model.RecentStudents)
+                        {
+                            <tr>
+                                <td class="fw-semibold">@s.Name</td>
+                                <td><span class="badge @(s.Gender=="Male"?"bg-primary":"bg-danger") bg-opacity-75">@s.Gender</span></td>
+                                <td>@s.Mobile</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-person-badge text-danger me-2"></i>Recent Teachers</h6>
+                <a href="/Teacher" class="btn btn-sm btn-outline-danger">View All</a>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light"><tr><th>Name</th><th>Subject</th><th>Mobile</th></tr></thead>
+                    <tbody>
+                        @if (!Model.RecentTeachers.Any())
+                        {
+                            <tr><td colspan="3" class="text-center text-muted py-3">No teachers yet</td></tr>
+                        }
+                        @foreach (var t in Model.RecentTeachers)
+                        {
+                            <tr>
+                                <td class="fw-semibold">@t.Name</td>
+                                <td><span class="badge bg-danger bg-opacity-75">@t.Subject</span></td>
+                                <td>@t.Mobile</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.hover-action:hover { border-color:#0d6efd !important; background:#f0f7ff; transform:translateY(-2px); transition:.15s; }
+</style>

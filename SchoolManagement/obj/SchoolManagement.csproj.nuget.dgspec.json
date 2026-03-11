@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\balok\\Downloads\\SchoolManagement_FINAL\\SMS\\SchoolManagement\\SchoolManagement.csproj": {}
+    "C:\\Users\\balok\\OneDrive\\Desktop\\Admin-School\\SchoolManagement\\SchoolManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\balok\\Downloads\\SchoolManagement_FINAL\\SMS\\SchoolManagement\\SchoolManagement.csproj": {
+    "C:\\Users\\balok\\OneDrive\\Desktop\\Admin-School\\SchoolManagement\\SchoolManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\balok\\Downloads\\SchoolManagement_FINAL\\SMS\\SchoolManagement\\SchoolManagement.csproj",
+        "projectUniqueName": "C:\\Users\\balok\\OneDrive\\Desktop\\Admin-School\\SchoolManagement\\SchoolManagement.csproj",
         "projectName": "SchoolManagement",
-        "projectPath": "C:\\Users\\balok\\Downloads\\SchoolManagement_FINAL\\SMS\\SchoolManagement\\SchoolManagement.csproj",
+        "projectPath": "C:\\Users\\balok\\OneDrive\\Desktop\\Admin-School\\SchoolManagement\\SchoolManagement.csproj",
         "packagesPath": "C:\\Users\\balok\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\balok\\Downloads\\SchoolManagement_FINAL\\SMS\\SchoolManagement\\obj\\",
+        "outputPath": "C:\\Users\\balok\\OneDrive\\Desktop\\Admin-School\\SchoolManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
